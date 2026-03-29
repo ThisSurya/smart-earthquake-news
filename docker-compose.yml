@@ -47,14 +47,14 @@ services:
     depends_on:
       - backend
 
-  # cron-job:
-  #   build: ./fastAPI
-  #   container_name: smart-news-cron
-  #   command: python cron_runner.py
-  #   environment:
-  #     - BACKEND_URL=http://backend:8000
-  #   depends_on:
-  #     - backend
+  cron-job:
+    build: ./fastAPI
+    container_name: smart-news-cron
+    command: python cron_runner.py
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      - backend
 
 volumes:
   postgres_data:
