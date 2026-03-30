@@ -49,8 +49,8 @@ function toRadians(degrees: number): number {
 export function calculateNewsDistance(
   userLat: number | null,
   userLon: number | null,
-  newsLat: string | null,
-  newsLon: string | null
+  newsLat: string | number | null,
+  newsLon: string | number | null
 ): number | null {
   if (
     userLat === null ||
@@ -61,8 +61,8 @@ export function calculateNewsDistance(
     return null
   }
 
-  const lat2 = parseFloat(newsLat)
-  const lon2 = parseFloat(newsLon)
+  const lat2 = typeof newsLat === 'number' ? newsLat : parseFloat(newsLat)
+  const lon2 = typeof newsLon === 'number' ? newsLon : parseFloat(newsLon)
 
   if (isNaN(lat2) || isNaN(lon2)) {
     return null

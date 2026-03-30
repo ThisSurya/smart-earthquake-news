@@ -5,7 +5,7 @@ import type { EarthquakeEvent, ClusteredResult } from '@/services/api'
 
 export interface MapInstance {
   map: L.Map
-  markersLayer: L.LayerGroup
+  markersLayer: L.FeatureGroup
 }
 
 const EVENT_MARKER_COLOR = '#f59e0b'
@@ -85,7 +85,7 @@ export function useMap(containerRef: Ref<HTMLDivElement | null>) {
     // Zoom control on bottom-right
     L.control.zoom({ position: 'bottomright' }).addTo(map)
 
-    const markersLayer = L.layerGroup().addTo(map)
+    const markersLayer = L.featureGroup().addTo(map)
 
     mapInstance = { map, markersLayer }
     return mapInstance

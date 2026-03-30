@@ -119,8 +119,8 @@ function updateMap() {
   props.recommendations.forEach((rec, index) => {
     if (!rec.latitude || !rec.longitude || !map) return
 
-    const newsLat = parseFloat(rec.latitude)
-    const newsLon = parseFloat(rec.longitude)
+    const newsLat = typeof rec.latitude === 'number' ? rec.latitude : parseFloat(rec.latitude)
+    const newsLon = typeof rec.longitude === 'number' ? rec.longitude : parseFloat(rec.longitude)
 
     if (isNaN(newsLat) || isNaN(newsLon)) return
 

@@ -26,6 +26,7 @@ def get_summary_api(text):
         {text}
         Tolong berikan apa yang harus lakukan jika terjadi gempa bumi di lokasi tersebut, dengan langkah-langkah yang jelas dan mudah dipahami. Sertakan juga informasi penting lainnya yang relevan dengan situasi gempa bumi di lokasi tersebut. pada data 'dirasakan' semakin tinggi angka nya maka akan semakin berdampak pada daerah tersebut.
       """,
+    
   )
   return response.text
 

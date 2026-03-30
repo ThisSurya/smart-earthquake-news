@@ -22,7 +22,7 @@ const displayEvent = computed<EarthquakeEvent | null>(() => {
   if (props.cluster && props.cluster.events.length > 0) {
     return [...props.cluster.events].sort(
       (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime(),
-    )[0]
+    )[0] ?? null
   }
   return null
 })
@@ -128,11 +128,11 @@ function onOverlayClick(e: MouseEvent) {
               v-for="ev in cluster.events"
               :key="ev.id"
               class="cluster-event-item"
-              :style="{ borderLeftColor: getSeverityLevel(ev.severity).color }"
+              :style="{ borderLeftColor: getSeverityLevel(ev.severity ?? null).color }"
             >
               <span class="cev-title">{{ ev.title }}</span>
               <span class="cev-meta">
-                <span v-if="ev.severity" :style="{ color: getSeverityLevel(ev.severity).color }">
+                <span v-if="ev.severity" :style="{ color: getSeverityLevel(ev.severity ?? null).color }">
                   M{{ ev.severity }}
                 </span>
                 · {{ formatDateTime(ev.datetime) }}

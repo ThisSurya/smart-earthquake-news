@@ -8,7 +8,7 @@ const props = defineProps<{
   index?: number
 }>()
 
-const severity = computed(() => getSeverityLevel(props.event.severity))
+const severity = computed(() => getSeverityLevel(props.event.severity ?? null))
 const source = computed(() => getSourceLabel(props.event.source))
 const formattedDate = computed(() => formatDateTime(props.event.datetime))
 const animDelay = computed(() => `${(props.index || 0) * 80}ms`)
