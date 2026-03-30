@@ -1,13 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EarthquakeView from '../views/EarthquakeView.vue'
+import DashboardView from '../views/DashboardView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'earthquake',
-      component: EarthquakeView,
+      name: 'dashboard',
+      component: DashboardView,
+    },
+    {
+      path: '/recommendations',
+      name: 'recommendations',
+      component: () => import('../views/EarthquakeView.vue'),
     },
   ],
 })

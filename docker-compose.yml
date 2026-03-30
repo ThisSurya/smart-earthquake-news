@@ -22,6 +22,8 @@ services:
   backend:
     build: ./fastAPI
     container_name: smart-news-backend
+    env_file:
+      - ./fastAPI/.env
     environment:
       - DB_USER=postgres
       - DB_PASSWORD=postgres
@@ -51,6 +53,8 @@ services:
     build: ./fastAPI
     container_name: smart-news-cron
     command: python cron_runner.py
+    env_file:
+      - ./fastAPI/.env
     environment:
       - BACKEND_URL=http://backend:8000
     depends_on:
