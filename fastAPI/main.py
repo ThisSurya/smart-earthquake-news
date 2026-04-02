@@ -13,6 +13,8 @@ origins = [
     "http://localhost:5173",
     "http://localhost:8080",
     "http://localhost:3000",
+    "geopulse.michaelsurya.my.id",
+    "https://geopulse.michaelsurya.my.id"
 ]
 
 app = FastAPI()
