@@ -44,8 +44,8 @@ export async function fetchEarthquakeNews(
   search?: string,
 ): Promise<ApiResponse> {
   const params = new URLSearchParams({
-    user_lat: lat.toString(),
-    user_lon: lon.toString(),
+    latitude: lat.toString(),
+    longitude: lon.toString(),
   })
 
   if (search) {
@@ -56,7 +56,7 @@ export async function fetchEarthquakeNews(
   const timeoutId = setTimeout(() => controller.abort(), 30000)
 
   try {
-    const response = await fetch(`${API_BASE_URL}/news?${params.toString()}`, {
+    const response = await fetch(`${API_BASE_URL}/news/recommendation?${params.toString()}`, {
       signal: controller.signal,
       headers: {
         Accept: 'application/json',
